@@ -15,7 +15,6 @@ function calculate(a, b, operator) {
     }
 }
 
-// Example usage
 console.log(calculate(10, 5, '+')); // 15
 console.log(calculate(10, 5, '/')); // 2
 console.log(calculate(10, 0, '/')); // Division by zero error
