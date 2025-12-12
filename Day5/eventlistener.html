@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listener Demo</title>
+</head>
+<body>
+    <h1 id="h1d1">First Heading</h1>
+    <h2 id="h2d2">Second Heading</h2>
+
+
+    <button id="b1d1">click1</button>
+    <button id="b2d2">click2</button>
+    <button id="b3d3">click3</button>
+
+    <script>
+        document.getElementById("b1d1").addEventListener("click",function()
+        {
+            document.getElementById("h1d1").innerHTML="Heading1 changed by Click1"
+            document.getElementById("h2d2").innerHTML="Heading2 changed by Click1"
+
+        }
+    
+    );
+    document.getElementById("b2d2").addEventListener("click",function(){
+        document.getElementById("h1d1").style.color="red";
+    }
+);
+    document.getElementById("b3d3").addEventListener("mouseover", function() {
+    document.body.style.backgroundColor = "beige";
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Validation Form</title>
+</head>
+<body>
+    
+         <h2>Simple Form</h2>
+
+    <form id="f1">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Enter the Name"><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" placeholder="Enter your Password"><br><br>
+
+        <button type="submit">Submit</button>
+        <p id="p1" style="color:red;"></p>
+    </form>
+    <script>
+        document.getElementById("f1").addEventListener("submit",function(event){
+            event.preventDefault()  //it will stop reloading of the page
+
+            let a=document.getElementById("name").value.trim(); //trim-->removes blankspaces
+            
+            //Referencing->very important
+
+            let error=document.getElementById("p1");
+
+            if(a==""){
+                error.innerHTML="Dont leave Name Empty";
+            }
+            else{
+                error.style.color="green";
+                error.innerHTML="Name is correct";
+            }
+            
+            // if(a.length<5)
+            // {
+            //     error.innerHTML="Name should have more than five characters";
+            // }
+            
+        });
+    </script>
+</body>
+</html>
