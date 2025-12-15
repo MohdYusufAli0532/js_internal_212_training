@@ -134,12 +134,12 @@
 <div class="login-container">
     <h3>Login</h3>
 
-    <form action="next.html" method="get">
+    <form action="next.html" method="get" onsubmit="return validateForm()">
         <label>Username</label>
-        <input type="text" placeholder="Enter username" name="first-name">
+        <input type="text" placeholder="Enter username" name="first-name" required>
 
         <label>Password</label>
-        <input type="text" placeholder="Enter password" name="password-here">
+        <input type="text" placeholder="Enter password" name="password-here" required>
 
         <div class="button-group">
             <!-- <button type="button">Login</button>  -->
@@ -151,13 +151,6 @@
     </form>
 </div>
 
-<!-- <script>
-    let username=document.getElementsByName("first-name").value;
-    let pssword=document.getElementByName("password-here").value;
 
-    if(username=="" || password==|){
-        alert("username or password cannot be blank");
-    }
-</script> -->
 </body>
 </html>
