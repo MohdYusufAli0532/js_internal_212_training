@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HCL Assessment - Student Registration</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: "Segoe UI", Arial, sans-serif;
+        transition: all 0.3s ease;
+    }
+
+    body {
+        margin: 0;
+        background: linear-gradient(120deg, #f4f6f9, #e0e7ef);
+    }
+
+    header {
+        background: linear-gradient(90deg, #0b5ed7, #084298);
+        color: white;
+        padding: 25px 0;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+
+    header p {
+        margin: 5px 0 0 0;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    .container {
+        max-width: 500px;
+        margin: 30px auto 50px;
+        background: #fff;
+        padding: 30px 25px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        text-align: center;
+        color: #0b5ed7;
+        margin-bottom: 25px;
+        font-size: 1.8rem;
+        position: relative;
+    }
+
+    h2::after {
+        content: "";
+        width: 60px;
+        height: 3px;
+        background: #0b5ed7;
+        display: block;
+        margin: 10px auto 0;
+        border-radius: 2px;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin-top: 15px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select {
+        width: 100%;
+        padding: 10px 12px;
+        margin-top: 6px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+        outline: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    select:focus {
+        border-color: #0b5ed7;
+        box-shadow: 0 0 8px rgba(11,94,215,0.3);
+    }
+
+    .gender-group {
+        margin-top: 6px;
+    }
+
+    .gender-group input {
+        width: auto;
+        margin-right: 5px;
+        cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+        margin-right: 6px;
+        cursor: pointer;
+    }
+
+    .error {
+        color: red;
+        font-size: 13px;
+        min-height: 16px;
+        margin-bottom: 8px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        margin-top: 15px;
+        background: linear-gradient(90deg, #0b5ed7, #084298);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    button:hover {
+        background: linear-gradient(90deg, #084298, #0b3b75);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    }
+
+    .output {
+        margin-top: 25px;
+        padding: 20px;
+        border-radius: 10px;
+        display: none;
+        background-color: #e9f7ef;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+
+    .success {
+        color: green;
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+
+    p {
+        margin: 5px 0;
+        font-size: 1rem;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>HCL Assessment</h1>
+    <p>Candidate Evaluation & Registration</p>
+</header>
+
+<div class="container">
+    <h2>Student Registration Form</h2>
+
+    <form id="regForm">
+        <label>Name</label>
+        <input type="text" id="name" placeholder="Enter your name">
+        <div class="error" id="nameError"></div>
+
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Enter your email">
+        <div class="error" id="emailError"></div>
+
+        <label>Gender</label>
+        <div class="gender-group">
+            <input type="radio" name="gender" value="Male"> Male
+            <input type="radio" name="gender" value="Female"> Female
+        </div>
+        <div class="error" id="genderError"></div>
+
+        <label>Course</label>
+        <select id="course">
+            <option value="">-- Select Course --</option>
+            <option>JavaScript</option>
+            <option>Python</option>
+            <option>Java</option>
+            <option>HTML & CSS</option>
+        </select>
+        <div class="error" id="courseError"></div>
+
+        <input type="checkbox" id="terms"> I agree to the Terms & Conditions
+        <div class="error" id="termsError"></div>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <div class="output" id="output">
+        <p class="success">Registration Successful!</p>
+        <p id="outName"></p>
+        <p id="outEmail"></p>
+        <p id="outGender"></p>
+        <p id="outCourse"></p>
+    </div>
+</div>
+
+<script>
+document.getElementById("regForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    document.getElementById("nameError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("genderError").innerHTML = "";
+    document.getElementById("courseError").innerHTML = "";
+    document.getElementById("termsError").innerHTML = "";
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let course = document.getElementById("course").value;
+    let terms = document.getElementById("terms").checked;
+    let gender = "";
+
+    let genderRadios = document.getElementsByName("gender");
+    for (let i = 0; i < genderRadios.length; i++) {
+        if (genderRadios[i].checked) {
+            gender = genderRadios[i].value;
+        }
+    }
+
+    if (name === "") {
+        document.getElementById("nameError").innerHTML = "Name cannot be empty";
+        return;
+    }
+    if (email === "") {
+        document.getElementById("emailError").innerHTML = "Email cannot be empty";
+        return;
+    }
+    if (!email.includes("@")) {
+        document.getElementById("emailError").innerHTML = "Please enter a valid email";
+        return;
+    }
+    if (gender === "") {
+        document.getElementById("genderError").innerHTML = "Please select gender";
+        return;
+    }
+    if (course === "") {
+        document.getElementById("courseError").innerHTML = "Please select a course";
+        return;
+    }
+    if (!terms) {
+        document.getElementById("termsError").innerHTML = "You must accept Terms & Conditions";
+        return;
+    }
+
+    document.getElementById("output").style.display = "block";
+    document.getElementById("outName").innerHTML = "Name: " + name;
+    document.getElementById("outEmail").innerHTML = "Email: " + email;
+    document.getElementById("outGender").innerHTML = "Gender: " + gender;
+    document.getElementById("outCourse").innerHTML = "Course: " + course;
+});
+</script>
+
+</body>
+</html>

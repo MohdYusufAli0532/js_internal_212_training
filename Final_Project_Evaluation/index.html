@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCL Assessment Portal</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            margin: 0;
+            background: linear-gradient(to right, #f4f6f9, #e0e7ef);
+        }
+
+        header {
+            background: linear-gradient(90deg, #0057a3, #003e73);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            margin: 5px 0 0;
+            font-size: 1rem;
+            color: #cce0ff;
+        }
+
+        nav {
+            background: #ffffff;
+            padding: 12px 0;
+            text-align: center;
+            border-bottom: 2px solid #ddd;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 80px;
+            z-index: 999;
+        }
+
+        nav a {
+            margin: 0 18px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+
+        nav a:hover {
+            color: white;
+            background: #0057a3;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            display: flex;
+            gap: 25px;
+            padding: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .box {
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .box h3 {
+            text-align: center;
+            color: #0057a3;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            position: relative;
+        }
+
+        .box h3::after {
+            content: "";
+            width: 50px;
+            height: 3px;
+            background: #0057a3;
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 3px;
+        }
+
+        table, input {
+            width: 100%;
+        }
+
+        input {
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        input:focus {
+            border-color: #0057a3;
+            box-shadow: 0 0 8px rgba(0,87,163,0.3);
+            outline: none;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+            margin-bottom: 8px;
+            min-height: 16px;
+        }
+
+        button {
+            padding: 10px 25px;
+            margin: 10px 5px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #0057a3, #003e73);
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #003e73, #001f3f);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+        }
+
+        .signup {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .signup a {
+            text-decoration: none;
+            color: #0057a3;
+            font-weight: 600;
+        }
+
+        .signup a:hover {
+            text-decoration: underline;
+        }
+
+        marquee {
+            font-size: 0.95rem;
+            color: #333;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #ffffff;
+            border-top: 1px solid #ddd;
+            font-size: 14px;
+            box-shadow: 0 -2px 6px rgba(0,0,0,0.05);
+            margin-top: 40px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>HCL Assessment Portal</h1>
+    <p>Evaluate Your Skills & Take Online Tests</p>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Assessments</a>
+    <a href="#">Practice Tests</a>
+    <a href="#">Guidelines</a>
+    <a href="#">Results</a>
+    <a href="#">Support</a>
+</nav>
+
+<div class="container">
+
+    <div class="box">
+        <h3>About HCL Assessments</h3>
+        <p>
+            HCL Assessments help evaluate candidates on their technical expertise, analytical thinking, and problem-solving skills.
+        </p>
+        <ul>
+            <li>Programming & IT Fundamentals</li>
+            <li>Logical Reasoning & Analytical Skills</li>
+            <li>Hands-On Coding & Scenario-Based Questions</li>
+            <li>Professional Communication & Aptitude</li>
+        </ul>
+    </div>
+
+    <div class="box">
+        <h3>Important Notices</h3>
+        <marquee direction="up" scrollamount="2" height="220" onmouseover="this.stop();" onmouseout="this.start();">
+            📢 Technical Assessment begins on <b>20 Dec 2025</b><br><br>
+            🕒 Candidate login opens 30 minutes prior<br><br>
+            ⚠️ Ensure stable internet connection<br><br>
+            🔐 Do not refresh or close the browser<br><br>
+            📝 Results will be emailed to registered ID<br><br>
+        </marquee>
+    </div>
+
+    <div class="box">
+        <h3>Candidate Login</h3>
+        <form id="f1" action="log.html" method="get">
+            <label>Candidate ID</label>
+            <input type="text" id="name" name="name" placeholder="Enter Candidate ID">
+            <div class="error" id="nameError"></div>
+
+            <label>Password</label>
+            <input type="password" id="pswd" name="pswd" placeholder="Enter Password">
+            <div class="error" id="pswdError"></div>
+
+            <center>
+                <button type="submit">Login</button>
+                <button type="reset">Cancel</button>
+            </center>
+        </form>
+
+        <div class="signup">
+            <a href="reg.html">New Candidate? Register Here</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    © 2025 HCLTech Assessment Portal | Candidate Evaluation & Training
+</footer>
+
+<script>
+    document.getElementById("f1").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        document.getElementById("nameError").innerHTML = "";
+        document.getElementById("pswdError").innerHTML = "";
+
+        let username = document.getElementById("name").value.trim();
+        let psw = document.getElementById("pswd").value.trim();
+
+        if (username === "") {
+            document.getElementById("nameError").innerHTML = "Candidate ID cannot be empty";
+            return; 
+        }
+
+        if (psw === "") {
+            document.getElementById("pswdError").innerHTML = "Password cannot be empty";
+            return;
+        }
+
+        this.submit();
+    });
+</script>
+
+</body>
+</html>
